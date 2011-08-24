@@ -1,0 +1,24 @@
+.sat {
+  background-image: url(back_sat.png);
+  background-color: #ffcc33;
+  background-position: center top;
+  background-repeat: repeat-y;
+}
+.usat {
+  background-color: #fff0c6;
+  background-image: url(back_usat.png);
+  background-repeat: repeat-y;
+  background-position: center top;
+}
+label{
+	font: x-small normal "Arial";
+	
+	
+
+}
+body{
+	font: caption;
+	
+	
+}
+l

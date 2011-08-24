@@ -1,0 +1,94 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta content="text/html; charset=ISO-8859-1" http-equiv="content-type">
+<title>myMet</title>
+<style type="text/css">
+</style>
+<link rel="stylesheet" href="/static/main.css" type="text/css">
+</head>
+<body>
+<table style="text-align: left; width: 200px; background-color: rgb(255, 204, 51);" border="0" cellpadding="0" cellspacing="0">
+<tbody>
+<tr class="usat">
+	<td style="vertical-align: top;">
+		<a href="/"><img border=0 style="width: 200px; height: 51px;" alt="MyMet, transit info for the chronically connected." src="/static/logo.png"></a>
+	</td>
+</tr>
+<tr class="usat">
+	<td style="vertical-align: top;">
+		{{loginBlock}}<br><img style="width: 200px; height: 1px;" alt="" src="/static/back_sat.png">
+		<a href="about">about MyMet</a>
+	</td>
+</tr>
+{% if chkdStop %}
+<tr class="usat">
+	<td style="vertical-align: top;">
+		<img style="width: 200px; height: 1px;" alt="" src="/static/back_sat.png">
+		stopId: {{chkdStop}}<br>{{stpInfo}}
+		<img style="width: 200px; height: 1px;" alt="" src="/static/back_sat.png">
+		{{strArvls}}
+	</td>
+</tr>
+{% endif%}
+
+{% if errMsg %}
+<tr class="usat">
+	<td style="vertical-align: top;">
+		<img style="width: 200px; height: 1px;" alt="" src="/static/back_sat.png">
+		There was an error:<br> "{{errMsg}}"
+	</td>
+</tr>
+{% endif%}
+
+<tr class="usat">
+	<td style="vertical-align: top;">
+		<img style="width: 200px; height: 1px;" alt="" src="/static/back_sat.png">
+		<form action="/stop" method="post">
+			<label>Enter a stopId:<input name="content" rows="1" cols="25" type="text"></label>
+			<div style="text-align: center;">
+				<input style="" value="check stop" type="submit">
+			</div>
+		</form>
+
+	</td>
+</tr>
+{% if infoBlock %}
+<tr class="usat">
+	<td style="vertical-align: top;">
+		<img style="width: 200px; height: 1px;" alt="" src="/static/back_sat.png"> 
+		{{infoBlock}}
+	</td>
+</tr>
+{%endif%}
+
+{% if statTab %}
+<tr class="usat">
+	<td style="vertical-align: top;">
+		<img style="width: 200px; height: 1px;" alt="" src="/static/back_sat.png"> 
+		{{statTab}}
+	</td>
+</tr>
+{%endif%}
+
+<tr class="usat">
+	<td style="vertical-align: top;">
+		<img style="width: 200px; height: 1px;" alt="" src="/static/back_sat.png"><a href="about">myMet information</a><br>
+		{%if False%}
+		<a href="me">about the developer</a>
+		{%endif%}
+	</td>
+</tr>
+<tr class="usat">
+	<td>
+	<img style="width: 200px; height: 1px;" alt="" src="/static/back_sat.png">
+	{{strLicence}}
+	</td>
+</tr>
+</tbody>
+</table>
+<br>
+
+<br>
+</body>
+</html>
