@@ -111,7 +111,7 @@ def reduceDoubles(strTarget, strGetridof):
   return strOut
 
 if __name__ == '__main__':
-  myConnection = pyMet('D93C6F933BC90C056D4EE8406')
+  myConnection = pyMet('Need app-id from tri-met here')
   myConnection.showStopSMS('13243')
   myConnection.showStopSMS('bob')
 #  for line in myConnection.lstOut:
