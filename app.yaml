@@ -1,14 +1,15 @@
 application: mcgrady-tack
-version: 1
-runtime: python
+version: 2
+runtime: python27
 api_version: 1
+threadsafe: true
 
 handlers:
 - url: /static
   static_dir: static
     
 - url: /.*
-  script: my_met.py
-
+  script: my_met.app
+  
 builtins:
 - remote_api: on

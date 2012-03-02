@@ -2,8 +2,8 @@ import urllib2, os, pyMet
 import blocks
 
 from google.appengine.api import users
-from google.appengine.ext import webapp
-from google.appengine.ext.webapp.util import run_wsgi_app
+import webapp2
+#from google.appengine.ext.webapputil import run_wsgi_app
 from google.appengine.ext import db
 from google.appengine.ext.webapp import template
 
@@ -14,21 +14,21 @@ class busStop(db.Model):
 	reqDate = db.DateTimeProperty(auto_now_add=True)
 	reqUser = db.UserProperty()
 
-class MainPage(webapp.RequestHandler):
+class MainPage(webapp2.RequestHandler):
 	def get(self):		
 		rendTemp(self)
 		
-class AboutPage(webapp.RequestHandler):
+class AboutPage(webapp2.RequestHandler):
 	def get(self):
 		dictout=dict(infoBlock = blocks.strInfo)
 		rendTemp(self, dictout)
 		
-class ErrPage(webapp.RequestHandler):
+class ErrPage(webapp2.RequestHandler):
 	def get(self):
 		dictout = dict(errMsg = self.request.get('oops'))
 		rendTemp(self, dictout)
 
-class CheckStop(webapp.RequestHandler):
+class CheckStop(webapp2.RequestHandler):
 
 	def post(self):
 		self.stopToCheck = self.request.get('content').strip()
@@ -74,7 +74,7 @@ def rendTemp(self,dictOut = {}):
 	temPpath = os.path.join(os.path.dirname(__file__),'myMet.html')
 	self.response.out.write(template.render(temPpath, dictOut))	
 
-application = webapp.WSGIApplication(
+app = webapp2.WSGIApplication(
 									 [
 									  ('/stop', CheckStop),
 									  ('/about', AboutPage),
@@ -84,8 +84,3 @@ application = webapp.WSGIApplication(
 									 debug=True)    
 
 	
-def main():
-	run_wsgi_app(application)
-
-if __name__ == "__main__":
-	main()
