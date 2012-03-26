@@ -10,6 +10,19 @@ indexes:
 # automatically uploaded to the admin console when you next deploy
 # your application using appcfg.py.
 
+- kind: BusStop
+  properties:
+  - name: reqUser
+  - name: reqDate
+    direction: desc
+
+- kind: BusStop
+  ancestor: yes
+  properties:
+  - name: reqUser
+  - name: reqDate
+    direction: desc
+
 - kind: busStop
   properties:
   - name: reqUser
